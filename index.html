@@ -68,6 +68,7 @@
     padding:14px 32px;
     max-width:1120px;
     margin:0 auto;
+    gap:20px;
   }
   .brand{display:flex;align-items:center;gap:12px;}
   .brand img{height:32px;width:auto;}
@@ -78,6 +79,7 @@
     padding-left:12px;
     line-height:1.3;
   }
+  nav{flex:1;display:flex;justify-content:center;}
   nav ul{
     display:flex;
     gap:30px;
@@ -93,6 +95,36 @@
   }
   nav a:hover{border-color:var(--orange);}
   .nav-toggle{display:none;}
+
+  /* ---------- language switch ---------- */
+  .lang-switch{
+    display:flex;
+    align-items:center;
+    gap:2px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:3px;
+    background:var(--bg-alt);
+    flex:none;
+  }
+  .lang-switch button{
+    border:none;
+    background:transparent;
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:var(--ink-soft);
+    padding:5px 12px;
+    border-radius:100px;
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease;
+  }
+  .lang-switch button.active{
+    background:var(--teal-deep);
+    color:#fff;
+  }
+  .lang-switch button:hover:not(.active){color:var(--teal-ink);}
 
   /* ---------- hero ---------- */
   .hero{
@@ -524,13 +556,17 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#approach">Approach</a></li>
-        <li><a href="#people">People</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#research" data-i18n="nav.research">Research</a></li>
+        <li><a href="#approach" data-i18n="nav.approach">Approach</a></li>
+        <li><a href="#people" data-i18n="nav.people">People</a></li>
+        <li><a href="#publications" data-i18n="nav.publications">Publications</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
+    <div class="lang-switch" role="group" aria-label="Language / Lingua">
+      <button type="button" data-lang-btn="en">EN</button>
+      <button type="button" data-lang-btn="it">IT</button>
+    </div>
   </div>
 </header>
 
@@ -538,25 +574,25 @@
   <div class="wrap hero-grid">
     <div>
       <div class="affil-chip reveal reveal-1"><span class="dot"></span> Politecnico di Milano · DICA</div>
-      <div class="eyebrow-line reveal reveal-1"><span class="dash"></span> Wastewater &amp; Resource Recovery Research</div>
-      <h1 class="reveal reveal-2">Turning wastewater into a resource, not a liability.</h1>
-      <p class="lede reveal reveal-3">We study the biological and chemical processes that let treatment systems recover clean water, nutrients, and energy from streams currently treated as waste.</p>
+      <div class="eyebrow-line reveal reveal-1"><span class="dash"></span> <span data-i18n="hero.eyebrow">Wastewater &amp; Resource Recovery Research</span></div>
+      <h1 class="reveal reveal-2" data-i18n="hero.h1">Turning wastewater into a resource, not a liability.</h1>
+      <p class="lede reveal reveal-3" data-i18n="hero.lede">We study the biological and chemical processes that let treatment systems recover clean water, nutrients, and energy from streams currently treated as waste.</p>
       <div class="hero-cta reveal reveal-4">
-        <a href="#research" class="btn btn-primary">See our research</a>
-        <a href="#contact" class="btn btn-ghost">Join the group</a>
+        <a href="#research" class="btn btn-primary" data-i18n="hero.cta.primary">See our research</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta.ghost">Join the group</a>
       </div>
       <div class="hero-stats reveal reveal-4">
         <div>
           <div class="stat-num">4</div>
-          <div class="stat-label">Research areas</div>
+          <div class="stat-label" data-i18n="hero.stat1">Research areas</div>
         </div>
         <div>
           <div class="stat-num">[X]</div>
-          <div class="stat-label">Active projects</div>
+          <div class="stat-label" data-i18n="hero.stat2">Active projects</div>
         </div>
         <div>
           <div class="stat-num">[YYYY]</div>
-          <div class="stat-label">Group established</div>
+          <div class="stat-label" data-i18n="hero.stat3">Group established</div>
         </div>
       </div>
     </div>
@@ -573,8 +609,8 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6.2L5.8 19a2 2 0 0 0 1.7 3h9a2 2 0 0 0 1.7-3L12 9.2V3"/><path d="M9 3h6"/><path d="M8 14h8"/></svg>
       </div>
       <div>
-        <h4>Hands-on lab work</h4>
-        <p>Real reactors and analytical methods, not just simulations.</p>
+        <h4 data-i18n="why1.title">Hands-on lab work</h4>
+        <p data-i18n="why1.desc">Real reactors and analytical methods, not just simulations.</p>
       </div>
     </div>
     <div class="why-item">
@@ -582,8 +618,8 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
       </div>
       <div>
-        <h4>Publication-track projects</h4>
-        <p>Thesis work that's built to become a conference paper or journal article.</p>
+        <h4 data-i18n="why2.title">Publication-track projects</h4>
+        <p data-i18n="why2.desc">Thesis work that's built to become a conference paper or journal article.</p>
       </div>
     </div>
     <div class="why-item">
@@ -591,8 +627,8 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg>
       </div>
       <div>
-        <h4>Industry &amp; utility partners</h4>
-        <p>Projects grounded in problems real treatment facilities are trying to solve.</p>
+        <h4 data-i18n="why3.title">Industry &amp; utility partners</h4>
+        <p data-i18n="why3.desc">Projects grounded in problems real treatment facilities are trying to solve.</p>
       </div>
     </div>
   </div>
@@ -601,38 +637,38 @@
 <section id="research">
   <div class="wrap">
     <div class="section-head">
-      <span class="kicker">Research</span>
-      <h2>Four angles on the same problem</h2>
-      <p>Our projects sit at the intersection of microbiology, electrochemistry, and process engineering, all aimed at closing the loop between what a treatment plant takes in and what it can give back.</p>
+      <span class="kicker" data-i18n="research.kicker">Research</span>
+      <h2 data-i18n="research.h2">Four angles on the same problem</h2>
+      <p data-i18n="research.p">Our projects sit at the intersection of microbiology, electrochemistry, and process engineering, all aimed at closing the loop between what a treatment plant takes in and what it can give back.</p>
     </div>
     <div class="research-grid">
       <div class="research-card">
         <div class="icon-badge" style="background:var(--teal-deep);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.5L4.6 18a1.8 1.8 0 0 0 1.5 2.8h11.8a1.8 1.8 0 0 0 1.5-2.8L14 9.5V3"/><path d="M7.5 15h9"/></svg>
         </div>
-        <h3>Biological treatment</h3>
-        <p>Engineering microbial communities that remove organic load and nutrients more reliably, using less energy than conventional activated sludge.</p>
+        <h3 data-i18n="research.card1.title">Biological treatment</h3>
+        <p data-i18n="research.card1.desc">Engineering microbial communities that remove organic load and nutrients more reliably, using less energy than conventional activated sludge.</p>
       </div>
       <div class="research-card">
         <div class="icon-badge" style="background:var(--green-mid);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c0 8-6 14-14 14H4v-2C4 8 10 4 18 4h2Z"/><path d="M6 18c2-4 5-7 9-9"/></svg>
         </div>
-        <h3>Nutrient &amp; resource recovery</h3>
-        <p>Capturing nitrogen and phosphorus from wastewater streams and converting them into usable fertilizer products instead of discharge byproducts.</p>
+        <h3 data-i18n="research.card2.title">Nutrient &amp; resource recovery</h3>
+        <p data-i18n="research.card2.desc">Capturing nitrogen and phosphorus from wastewater streams and converting them into usable fertilizer products instead of discharge byproducts.</p>
       </div>
       <div class="research-card">
         <div class="icon-badge" style="background:var(--orange);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
         </div>
-        <h3>Electrochemical systems</h3>
-        <p>Applying electrochemical reactors to recover metals, generate value-added chemicals, and cut the energy footprint of treatment.</p>
+        <h3 data-i18n="research.card3.title">Electrochemical systems</h3>
+        <p data-i18n="research.card3.desc">Applying electrochemical reactors to recover metals, generate value-added chemicals, and cut the energy footprint of treatment.</p>
       </div>
       <div class="research-card">
         <div class="icon-badge" style="background:var(--green-lime);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15v-4"/><path d="M12.5 15V8"/><path d="M17 15v-6"/></svg>
         </div>
-        <h3>Process modeling &amp; scale-up</h3>
-        <p>Translating lab-scale results into models and pilot designs that utilities and industry partners can actually implement.</p>
+        <h3 data-i18n="research.card4.title">Process modeling &amp; scale-up</h3>
+        <p data-i18n="research.card4.desc">Translating lab-scale results into models and pilot designs that utilities and industry partners can actually implement.</p>
       </div>
     </div>
   </div>
@@ -641,25 +677,25 @@
 <section id="approach" class="band-teal">
   <div class="wrap">
     <div class="section-head">
-      <span class="kicker">Approach</span>
-      <h2>From waste stream to value stream</h2>
-      <p>Every project in the group follows the same underlying logic, applied to a different waste type or process.</p>
+      <span class="kicker" data-i18n="approach.kicker">Approach</span>
+      <h2 data-i18n="approach.h2">From waste stream to value stream</h2>
+      <p data-i18n="approach.p">Every project in the group follows the same underlying logic, applied to a different waste type or process.</p>
     </div>
     <div class="process">
       <div class="process-step">
         <span class="num">01</span>
-        <h3>Characterize the waste</h3>
-        <p>Understand the composition, variability, and hidden potential of a wastewater or byproduct stream.</p>
+        <h3 data-i18n="approach.step1.title">Characterize the waste</h3>
+        <p data-i18n="approach.step1.desc">Understand the composition, variability, and hidden potential of a wastewater or byproduct stream.</p>
       </div>
       <div class="process-step">
         <span class="num">02</span>
-        <h3>Engineer the process</h3>
-        <p>Design biological or electrochemical systems that selectively remove, transform, or recover target compounds.</p>
+        <h3 data-i18n="approach.step2.title">Engineer the process</h3>
+        <p data-i18n="approach.step2.desc">Design biological or electrochemical systems that selectively remove, transform, or recover target compounds.</p>
       </div>
       <div class="process-step">
         <span class="num">03</span>
-        <h3>Recover the value</h3>
-        <p>Deliver a usable output — clean water, fertilizer, chemicals, or metals — at a scale that makes sense for real facilities.</p>
+        <h3 data-i18n="approach.step3.title">Recover the value</h3>
+        <p data-i18n="approach.step3.desc">Deliver a usable output — clean water, fertilizer, chemicals, or metals — at a scale that makes sense for real facilities.</p>
       </div>
     </div>
   </div>
@@ -668,67 +704,67 @@
 <section id="people">
   <div class="wrap">
     <div class="section-head">
-      <span class="kicker">People</span>
-      <h2>The group</h2>
-      <p>A mix of graduate researchers, undergraduates, and collaborators working across the group's project areas.</p>
+      <span class="kicker" data-i18n="people.kicker">People</span>
+      <h2 data-i18n="people.h2">The group</h2>
+      <p data-i18n="people.p">A mix of graduate researchers, undergraduates, and collaborators working across the group's project areas.</p>
     </div>
     <div class="team-photo">
       <img src="wave-team-photo.jpg" alt="The WAVE research group">
     </div>
-    <p class="team-photo-caption">The WAVE group, DICA — Politecnico di Milano.<span class="placeholder-tag">edit caption</span></p>
+    <p class="team-photo-caption"><span data-i18n="people.caption">The WAVE group, DICA — Politecnico di Milano.</span><span class="placeholder-tag" data-i18n="ph.editCaption">edit caption</span></p>
     <div class="people-grid">
       <div class="person">
         <div class="avatar">PI</div>
-        <h4>[PI Name]</h4>
-        <div class="role">Principal Investigator</div>
+        <h4 data-i18n="ph.piName">[PI Name]</h4>
+        <div class="role" data-i18n="people.role.pi">Principal Investigator</div>
       </div>
       <div class="person">
         <div class="avatar">SN</div>
-        <h4>[Student Name]</h4>
-        <div class="role">PhD Researcher</div>
+        <h4 data-i18n="ph.studentName">[Student Name]</h4>
+        <div class="role" data-i18n="people.role.phd">PhD Researcher</div>
       </div>
       <div class="person">
         <div class="avatar">SN</div>
-        <h4>[Student Name]</h4>
-        <div class="role">PhD Researcher</div>
+        <h4 data-i18n="ph.studentName">[Student Name]</h4>
+        <div class="role" data-i18n="people.role.phd">PhD Researcher</div>
       </div>
       <div class="person">
         <div class="avatar">SN</div>
-        <h4>[Student Name]</h4>
-        <div class="role">MS Researcher</div>
+        <h4 data-i18n="ph.studentName">[Student Name]</h4>
+        <div class="role" data-i18n="people.role.ms">MS Researcher</div>
       </div>
     </div>
-    <p class="people-note">Placeholder profiles — swap in real names, roles, and photos for each group member.<span class="placeholder-tag">edit me</span></p>
+    <p class="people-note"><span data-i18n="people.note">Placeholder profiles — swap in real names, roles, and photos for each group member.</span><span class="placeholder-tag" data-i18n="ph.editMe">edit me</span></p>
   </div>
 </section>
 
 <section id="publications" style="background:var(--bg-alt);">
   <div class="wrap">
     <div class="section-head">
-      <span class="kicker">Publications</span>
-      <h2>Recent work</h2>
-      <p>A running list of peer-reviewed papers and conference proceedings from the group.</p>
+      <span class="kicker" data-i18n="publications.kicker">Publications</span>
+      <h2 data-i18n="publications.h2">Recent work</h2>
+      <p data-i18n="publications.p">A running list of peer-reviewed papers and conference proceedings from the group.</p>
     </div>
     <div class="pub-list">
       <div class="pub-item">
         <div class="year">2026</div>
         <div>
-          <h4>[Placeholder] Paper title describing a WAVE research finding</h4>
-          <div class="venue">Journal Name, Vol. XX</div>
+          <h4 data-i18n="pub1.title">[Placeholder] Paper title describing a WAVE research finding</h4>
+          <div class="venue" data-i18n="pub1.venue">Journal Name, Vol. XX</div>
         </div>
       </div>
       <div class="pub-item">
         <div class="year">2025</div>
         <div>
-          <h4>[Placeholder] Second paper title goes here</h4>
-          <div class="venue">Conference Proceedings</div>
+          <h4 data-i18n="pub2.title">[Placeholder] Second paper title goes here</h4>
+          <div class="venue" data-i18n="pub2.venue">Conference Proceedings</div>
         </div>
       </div>
       <div class="pub-item">
         <div class="year">2025</div>
         <div>
-          <h4>[Placeholder] Third paper title goes here</h4>
-          <div class="venue">Journal Name, Vol. XX</div>
+          <h4 data-i18n="pub3.title">[Placeholder] Third paper title goes here</h4>
+          <div class="venue" data-i18n="pub3.venue">Journal Name, Vol. XX</div>
         </div>
       </div>
     </div>
@@ -738,23 +774,23 @@
 <section id="contact" class="band-teal">
   <div class="wrap contact-grid">
     <div>
-      <span class="kicker">Contact</span>
-      <h2 style="color:#fff;">Interested in joining?</h2>
-      <p style="color:rgba(255,255,255,0.82); margin-top:14px; max-width:44ch;">We're always open to hearing from prospective students and collaborators working on water, waste, and resource recovery.</p>
+      <span class="kicker" data-i18n="contact.kicker">Contact</span>
+      <h2 style="color:#fff;" data-i18n="contact.h2">Interested in joining?</h2>
+      <p style="color:rgba(255,255,255,0.82); margin-top:14px; max-width:44ch;" data-i18n="contact.p">We're always open to hearing from prospective students and collaborators working on water, waste, and resource recovery.</p>
     </div>
     <div class="contact-grid" style="gap:32px;">
       <div class="contact-block">
-        <h3>Email</h3>
+        <h3 data-i18n="contact.email.label">Email</h3>
         <a href="mailto:wave-lab@polimi.it">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           wave-lab@polimi.it
         </a>
       </div>
       <div class="contact-block">
-        <h3>Location</h3>
+        <h3 data-i18n="contact.location.label">Location</h3>
         <p style="align-items:flex-start;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-          <span>DICA — Dipartimento di Ingegneria Civile e Ambientale<br>Politecnico di Milano<br>Milan, Italy</span>
+          <span data-i18n="contact.location.address">DICA — Dipartimento di Ingegneria Civile e Ambientale<br>Politecnico di Milano<br>Milan, Italy</span>
         </p>
       </div>
     </div>
@@ -777,6 +813,179 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var translations = {
+    en: {
+      "nav.research": "Research",
+      "nav.approach": "Approach",
+      "nav.people": "People",
+      "nav.publications": "Publications",
+      "nav.contact": "Contact",
+      "hero.eyebrow": "Wastewater &amp; Resource Recovery Research",
+      "hero.h1": "Turning wastewater into a resource, not a liability.",
+      "hero.lede": "We study the biological and chemical processes that let treatment systems recover clean water, nutrients, and energy from streams currently treated as waste.",
+      "hero.cta.primary": "See our research",
+      "hero.cta.ghost": "Join the group",
+      "hero.stat1": "Research areas",
+      "hero.stat2": "Active projects",
+      "hero.stat3": "Group established",
+      "why1.title": "Hands-on lab work",
+      "why1.desc": "Real reactors and analytical methods, not just simulations.",
+      "why2.title": "Publication-track projects",
+      "why2.desc": "Thesis work that's built to become a conference paper or journal article.",
+      "why3.title": "Industry &amp; utility partners",
+      "why3.desc": "Projects grounded in problems real treatment facilities are trying to solve.",
+      "research.kicker": "Research",
+      "research.h2": "Four angles on the same problem",
+      "research.p": "Our projects sit at the intersection of microbiology, electrochemistry, and process engineering, all aimed at closing the loop between what a treatment plant takes in and what it can give back.",
+      "research.card1.title": "Biological treatment",
+      "research.card1.desc": "Engineering microbial communities that remove organic load and nutrients more reliably, using less energy than conventional activated sludge.",
+      "research.card2.title": "Nutrient &amp; resource recovery",
+      "research.card2.desc": "Capturing nitrogen and phosphorus from wastewater streams and converting them into usable fertilizer products instead of discharge byproducts.",
+      "research.card3.title": "Electrochemical systems",
+      "research.card3.desc": "Applying electrochemical reactors to recover metals, generate value-added chemicals, and cut the energy footprint of treatment.",
+      "research.card4.title": "Process modeling &amp; scale-up",
+      "research.card4.desc": "Translating lab-scale results into models and pilot designs that utilities and industry partners can actually implement.",
+      "approach.kicker": "Approach",
+      "approach.h2": "From waste stream to value stream",
+      "approach.p": "Every project in the group follows the same underlying logic, applied to a different waste type or process.",
+      "approach.step1.title": "Characterize the waste",
+      "approach.step1.desc": "Understand the composition, variability, and hidden potential of a wastewater or byproduct stream.",
+      "approach.step2.title": "Engineer the process",
+      "approach.step2.desc": "Design biological or electrochemical systems that selectively remove, transform, or recover target compounds.",
+      "approach.step3.title": "Recover the value",
+      "approach.step3.desc": "Deliver a usable output — clean water, fertilizer, chemicals, or metals — at a scale that makes sense for real facilities.",
+      "people.kicker": "People",
+      "people.h2": "The group",
+      "people.p": "A mix of graduate researchers, undergraduates, and collaborators working across the group's project areas.",
+      "people.caption": "The WAVE group, DICA — Politecnico di Milano.",
+      "people.role.pi": "Principal Investigator",
+      "people.role.phd": "PhD Researcher",
+      "people.role.ms": "MS Researcher",
+      "people.note": "Placeholder profiles — swap in real names, roles, and photos for each group member.",
+      "ph.piName": "[PI Name]",
+      "ph.studentName": "[Student Name]",
+      "ph.editCaption": "edit caption",
+      "ph.editMe": "edit me",
+      "publications.kicker": "Publications",
+      "publications.h2": "Recent work",
+      "publications.p": "A running list of peer-reviewed papers and conference proceedings from the group.",
+      "pub1.title": "[Placeholder] Paper title describing a WAVE research finding",
+      "pub1.venue": "Journal Name, Vol. XX",
+      "pub2.title": "[Placeholder] Second paper title goes here",
+      "pub2.venue": "Conference Proceedings",
+      "pub3.title": "[Placeholder] Third paper title goes here",
+      "pub3.venue": "Journal Name, Vol. XX",
+      "contact.kicker": "Contact",
+      "contact.h2": "Interested in joining?",
+      "contact.p": "We're always open to hearing from prospective students and collaborators working on water, waste, and resource recovery.",
+      "contact.email.label": "Email",
+      "contact.location.label": "Location",
+      "contact.location.address": "DICA — Dipartimento di Ingegneria Civile e Ambientale<br>Politecnico di Milano<br>Milan, Italy"
+    },
+    it: {
+      "nav.research": "Ricerca",
+      "nav.approach": "Approccio",
+      "nav.people": "Persone",
+      "nav.publications": "Pubblicazioni",
+      "nav.contact": "Contatti",
+      "hero.eyebrow": "Ricerca su acque reflue e recupero di risorse",
+      "hero.h1": "Trasformare le acque reflue in una risorsa, non in un peso.",
+      "hero.lede": "Studiamo i processi biologici e chimici che permettono agli impianti di trattamento di recuperare acqua pulita, nutrienti ed energia da flussi oggi trattati come rifiuti.",
+      "hero.cta.primary": "Scopri la nostra ricerca",
+      "hero.cta.ghost": "Unisciti al gruppo",
+      "hero.stat1": "Aree di ricerca",
+      "hero.stat2": "Progetti attivi",
+      "hero.stat3": "Gruppo fondato nel",
+      "why1.title": "Lavoro di laboratorio pratico",
+      "why1.desc": "Reattori reali e metodi analitici, non solo simulazioni.",
+      "why2.title": "Progetti orientati alla pubblicazione",
+      "why2.desc": "Tesi pensate per diventare un articolo di conferenza o una pubblicazione scientifica.",
+      "why3.title": "Partner industriali e gestori del servizio idrico",
+      "why3.desc": "Progetti basati su problemi reali che gli impianti di trattamento devono affrontare.",
+      "research.kicker": "Ricerca",
+      "research.h2": "Quattro prospettive sullo stesso problema",
+      "research.p": "I nostri progetti si collocano all'intersezione tra microbiologia, elettrochimica e ingegneria di processo, con l'obiettivo di chiudere il cerchio tra ciò che un impianto di trattamento riceve e ciò che può restituire.",
+      "research.card1.title": "Trattamento biologico",
+      "research.card1.desc": "Progettazione di comunità microbiche che rimuovono il carico organico e i nutrienti in modo più affidabile, con minor consumo energetico rispetto ai fanghi attivi convenzionali.",
+      "research.card2.title": "Recupero di nutrienti e risorse",
+      "research.card2.desc": "Cattura di azoto e fosforo dai flussi di acque reflue e loro conversione in fertilizzanti utilizzabili anziché in scarti di scarico.",
+      "research.card3.title": "Sistemi elettrochimici",
+      "research.card3.desc": "Utilizzo di reattori elettrochimici per recuperare metalli, generare prodotti chimici a valore aggiunto e ridurre l'impronta energetica del trattamento.",
+      "research.card4.title": "Modellazione di processo e scale-up",
+      "research.card4.desc": "Trasformazione dei risultati di laboratorio in modelli e progetti pilota che gestori e partner industriali possono realmente implementare.",
+      "approach.kicker": "Approccio",
+      "approach.h2": "Dal flusso di rifiuto al flusso di valore",
+      "approach.p": "Ogni progetto del gruppo segue la stessa logica di fondo, applicata a un diverso tipo di rifiuto o processo.",
+      "approach.step1.title": "Caratterizzare il rifiuto",
+      "approach.step1.desc": "Comprendere la composizione, la variabilità e il potenziale nascosto di un flusso di acque reflue o di un sottoprodotto.",
+      "approach.step2.title": "Progettare il processo",
+      "approach.step2.desc": "Progettare sistemi biologici o elettrochimici che rimuovano, trasformino o recuperino selettivamente i composti target.",
+      "approach.step3.title": "Recuperare il valore",
+      "approach.step3.desc": "Fornire un prodotto utilizzabile — acqua pulita, fertilizzanti, prodotti chimici o metalli — su una scala adatta agli impianti reali.",
+      "people.kicker": "Persone",
+      "people.h2": "Il gruppo",
+      "people.p": "Un insieme di dottorandi, ricercatori, studenti e collaboratori che lavorano nelle diverse aree progettuali del gruppo.",
+      "people.caption": "Il gruppo WAVE, DICA — Politecnico di Milano.",
+      "people.role.pi": "Responsabile scientifico",
+      "people.role.phd": "Dottorando/a di ricerca",
+      "people.role.ms": "Ricercatore/rice magistrale",
+      "people.note": "Profili segnaposto — da sostituire con nomi, ruoli e foto reali di ogni membro del gruppo.",
+      "ph.piName": "[Nome PI]",
+      "ph.studentName": "[Nome Studente]",
+      "ph.editCaption": "modifica didascalia",
+      "ph.editMe": "modifica qui",
+      "publications.kicker": "Pubblicazioni",
+      "publications.h2": "Lavori recenti",
+      "publications.p": "Un elenco aggiornato di articoli peer-reviewed e atti di convegno del gruppo.",
+      "pub1.title": "[Segnaposto] Titolo dell'articolo che descrive un risultato di ricerca WAVE",
+      "pub1.venue": "Nome Rivista, Vol. XX",
+      "pub2.title": "[Segnaposto] Secondo titolo dell'articolo qui",
+      "pub2.venue": "Atti di convegno",
+      "pub3.title": "[Segnaposto] Terzo titolo dell'articolo qui",
+      "pub3.venue": "Nome Rivista, Vol. XX",
+      "contact.kicker": "Contatti",
+      "contact.h2": "Interessato/a a unirti a noi?",
+      "contact.p": "Siamo sempre aperti a studenti e collaboratori interessati a temi di acqua, rifiuti e recupero di risorse.",
+      "contact.email.label": "Email",
+      "contact.location.label": "Sede",
+      "contact.location.address": "DICA — Dipartimento di Ingegneria Civile e Ambientale<br>Politecnico di Milano<br>Milano, Italia"
+    }
+  };
+
+  var STORAGE_KEY = "wave-lang";
+  var buttons = document.querySelectorAll("[data-lang-btn]");
+  var nodes = document.querySelectorAll("[data-i18n]");
+
+  function applyLanguage(lang){
+    var dict = translations[lang] || translations.en;
+    nodes.forEach(function(node){
+      var key = node.getAttribute("data-i18n");
+      if (dict[key] !== undefined){
+        node.innerHTML = dict[key];
+      }
+    });
+    buttons.forEach(function(btn){
+      btn.classList.toggle("active", btn.getAttribute("data-lang-btn") === lang);
+    });
+    document.documentElement.setAttribute("lang", lang);
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e){}
+  }
+
+  buttons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      applyLanguage(btn.getAttribute("data-lang-btn"));
+    });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch(e){}
+  var initial = saved || (navigator.language && navigator.language.toLowerCase().indexOf("it") === 0 ? "it" : "en");
+  applyLanguage(initial);
+})();
+</script>
 
 </body>
 </html>
