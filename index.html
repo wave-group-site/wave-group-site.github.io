@@ -295,6 +295,8 @@
     .people-grid [data-reveal]:nth-child(4n+4){transition-delay:.24s;}
     .pub-list [data-reveal]:nth-child(2){transition-delay:.1s;}
     .pub-list [data-reveal]:nth-child(3){transition-delay:.2s;}
+    .news-grid [data-reveal]:nth-child(2){transition-delay:.1s;}
+    .news-grid [data-reveal]:nth-child(3){transition-delay:.2s;}
   }
 
   /* ---------- section shared ---------- */
@@ -527,6 +529,51 @@
     margin-top:4px;
   }
 
+  /* ---------- news ---------- */
+  .news-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .news-card{
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:28px;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .news-card:hover{
+    box-shadow:0 14px 28px rgba(18,53,38,0.12);
+    transform:translateY(-3px);
+  }
+  .news-meta{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--orange);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  .news-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--ink-soft);flex:none;}
+  .news-meta .news-date{
+    color:var(--ink-soft);
+    font-weight:500;
+    text-transform:none;
+    letter-spacing:0;
+  }
+  .news-card h3{
+    font-size:19px;
+    line-height:1.3;
+    margin-bottom:10px;
+  }
+  .news-card p{
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+
   /* ---------- contact / footer ---------- */
   .contact-grid{
     display:grid;
@@ -602,6 +649,7 @@
     .research-grid{grid-template-columns:1fr;}
     .process{grid-template-columns:1fr;gap:32px;}
     .people-grid{grid-template-columns:repeat(2,1fr);}
+    .news-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;gap:36px;}
     .pub-item{grid-template-columns:60px 1fr;}
   }
@@ -622,6 +670,7 @@
         <li><a href="#approach" data-i18n="nav.approach">Approach</a></li>
         <li><a href="#people" data-i18n="nav.people">People</a></li>
         <li><a href="#publications" data-i18n="nav.publications">Publications</a></li>
+        <li><a href="#news" data-i18n="nav.news">News</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
@@ -908,6 +957,45 @@
   </div>
 </section>
 
+<section id="news">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="kicker" data-i18n="news.kicker">News</span>
+      <h2 data-i18n="news.h2">Latest from the group</h2>
+      <p data-i18n="news.p">Recent publications, events, and milestones from the WAVE research group.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card" data-reveal>
+        <div class="news-meta">
+          <span data-i18n="news1.category">Publication</span>
+          <span class="dot"></span>
+          <span class="news-date">2026</span>
+        </div>
+        <h3 data-i18n="news1.title">New study models flat-plate photobioreactors for purple phototrophic bacteria</h3>
+        <p data-i18n="news1.desc">Our latest paper in Bioresource Technology presents an integrated experimental and mechanistic framework for scaling up photobioreactors used in resource recovery.</p>
+      </div>
+      <div class="news-card" data-reveal>
+        <div class="news-meta">
+          <span data-i18n="news2.category">Event</span>
+          <span class="dot"></span>
+          <span class="news-date" data-i18n="news2.date">February 2026</span>
+        </div>
+        <h3 data-i18n="news2.title">WAVE co-hosts PRIN 2022 workshop on sludge and by-product valorization</h3>
+        <p data-i18n="news2.desc">The group joined two other PRIN 2022 projects at DICA for a workshop on the future of sewage sludge and agro-food by-product valorization research.</p>
+      </div>
+      <div class="news-card" data-reveal>
+        <div class="news-meta">
+          <span data-i18n="news3.category">Team</span>
+          <span class="dot"></span>
+          <span class="news-date">2026</span>
+        </div>
+        <h3 data-i18n="news3.title">The WAVE group welcomes a wave of new PhD candidates and research fellows</h3>
+        <p data-i18n="news3.desc">Our team has grown to 15 researchers working across biotechnology, resource recovery, and process modeling.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="band-teal">
   <div class="wrap contact-grid">
     <div data-reveal>
@@ -963,6 +1051,7 @@
       "nav.approach": "Approach",
       "nav.people": "People",
       "nav.publications": "Publications",
+      "nav.news": "News",
       "nav.contact": "Contact",
       "hero.eyebrow": "Wastewater &amp; Resource Recovery Research",
       "hero.h1": "Turning wastewater into a resource, not a liability.",
@@ -1023,6 +1112,19 @@
       "pub5.venue": "Bioresource Technology, 132873",
       "pub6.title": "Effect of Circular-Economy-Derived Experimental Biostimulants on Growth and Development of Soilless Strawberry Plants in Greenhouse Conditions",
       "pub6.venue": "Journal of Sustainable Agriculture and Environment, 4(4), e70101",
+      "news.kicker": "News",
+      "news.h2": "Latest from the group",
+      "news.p": "Recent publications, events, and milestones from the WAVE research group.",
+      "news1.category": "Publication",
+      "news1.title": "New study models flat-plate photobioreactors for purple phototrophic bacteria",
+      "news1.desc": "Our latest paper in Bioresource Technology presents an integrated experimental and mechanistic framework for scaling up photobioreactors used in resource recovery.",
+      "news2.category": "Event",
+      "news2.date": "February 2026",
+      "news2.title": "WAVE co-hosts PRIN 2022 workshop on sludge and by-product valorization",
+      "news2.desc": "The group joined two other PRIN 2022 projects at DICA for a workshop on the future of sewage sludge and agro-food by-product valorization research.",
+      "news3.category": "Team",
+      "news3.title": "The WAVE group welcomes a wave of new PhD candidates and research fellows",
+      "news3.desc": "Our team has grown to 15 researchers working across biotechnology, resource recovery, and process modeling.",
       "contact.kicker": "Contact",
       "contact.h2": "Interested in joining?",
       "contact.p": "We're always open to hearing from prospective students and collaborators working on water, waste, and resource recovery.",
@@ -1035,6 +1137,7 @@
       "nav.approach": "Approccio",
       "nav.people": "Persone",
       "nav.publications": "Pubblicazioni",
+      "nav.news": "Novità",
       "nav.contact": "Contatti",
       "hero.eyebrow": "Ricerca su acque reflue e recupero di risorse",
       "hero.h1": "Trasformare le acque reflue in una risorsa, non in un peso.",
@@ -1095,6 +1198,19 @@
       "pub5.venue": "Bioresource Technology, 132873",
       "pub6.title": "Effect of Circular-Economy-Derived Experimental Biostimulants on Growth and Development of Soilless Strawberry Plants in Greenhouse Conditions",
       "pub6.venue": "Journal of Sustainable Agriculture and Environment, 4(4), e70101",
+      "news.kicker": "Novità",
+      "news.h2": "Le ultime dal gruppo",
+      "news.p": "Pubblicazioni recenti, eventi e traguardi del gruppo di ricerca WAVE.",
+      "news1.category": "Pubblicazione",
+      "news1.title": "Un nuovo studio modella i fotobioreattori a piastra piana per i batteri fototrofici viola",
+      "news1.desc": "Il nostro ultimo articolo su Bioresource Technology presenta un framework sperimentale e meccanicistico integrato per lo scale-up dei fotobioreattori utilizzati nel recupero di risorse.",
+      "news2.category": "Evento",
+      "news2.date": "Febbraio 2026",
+      "news2.title": "WAVE co-organizza il workshop PRIN 2022 sulla valorizzazione di fanghi e sottoprodotti",
+      "news2.desc": "Il gruppo si è unito ad altri due progetti PRIN 2022 al DICA per un workshop sul futuro della ricerca sulla valorizzazione dei fanghi di depurazione e dei sottoprodotti agroalimentari.",
+      "news3.category": "Team",
+      "news3.title": "Il gruppo WAVE accoglie una nuova ondata di dottorandi e assegnisti di ricerca",
+      "news3.desc": "Il nostro team è cresciuto fino a 15 ricercatori attivi in biotecnologie, recupero di risorse e modellazione di processo.",
       "contact.kicker": "Contatti",
       "contact.h2": "Interessato/a a unirti a noi?",
       "contact.p": "Siamo sempre aperti a studenti e collaboratori interessati a temi di acqua, rifiuti e recupero di risorse.",
