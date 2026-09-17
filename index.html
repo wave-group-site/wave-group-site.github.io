@@ -249,6 +249,29 @@
       from{opacity:0; transform:translateY(14px);}
       to{opacity:1; transform:translateY(0);}
     }
+
+    /* ---------- scroll reveal ---------- */
+    [data-reveal]{
+      opacity:0;
+      transform:translateY(28px);
+      transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1);
+    }
+    [data-reveal].is-visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .why-grid [data-reveal]:nth-child(2){transition-delay:.1s;}
+    .why-grid [data-reveal]:nth-child(3){transition-delay:.2s;}
+    .research-grid [data-reveal]:nth-child(2){transition-delay:.08s;}
+    .research-grid [data-reveal]:nth-child(3){transition-delay:.16s;}
+    .research-grid [data-reveal]:nth-child(4){transition-delay:.24s;}
+    .process [data-reveal]:nth-child(2){transition-delay:.1s;}
+    .process [data-reveal]:nth-child(3){transition-delay:.2s;}
+    .people-grid [data-reveal]:nth-child(2){transition-delay:.08s;}
+    .people-grid [data-reveal]:nth-child(3){transition-delay:.16s;}
+    .people-grid [data-reveal]:nth-child(4){transition-delay:.24s;}
+    .pub-list [data-reveal]:nth-child(2){transition-delay:.1s;}
+    .pub-list [data-reveal]:nth-child(3){transition-delay:.2s;}
   }
 
   /* ---------- section shared ---------- */
@@ -606,7 +629,7 @@
 
 <section class="why-strip">
   <div class="wrap why-grid">
-    <div class="why-item">
+    <div class="why-item" data-reveal>
       <div class="why-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6.2L5.8 19a2 2 0 0 0 1.7 3h9a2 2 0 0 0 1.7-3L12 9.2V3"/><path d="M9 3h6"/><path d="M8 14h8"/></svg>
       </div>
@@ -615,7 +638,7 @@
         <p data-i18n="why1.desc">Real reactors and analytical methods, not just simulations.</p>
       </div>
     </div>
-    <div class="why-item">
+    <div class="why-item" data-reveal>
       <div class="why-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
       </div>
@@ -624,7 +647,7 @@
         <p data-i18n="why2.desc">Thesis work that's built to become a conference paper or journal article.</p>
       </div>
     </div>
-    <div class="why-item">
+    <div class="why-item" data-reveal>
       <div class="why-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg>
       </div>
@@ -638,34 +661,34 @@
 
 <section id="research">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="kicker" data-i18n="research.kicker">Research</span>
       <h2 data-i18n="research.h2">Four angles on the same problem</h2>
       <p data-i18n="research.p">Our projects sit at the intersection of microbiology, photochemistry, and process engineering, all aimed at closing the loop between what a treatment plant takes in and what it can give back.</p>
     </div>
     <div class="research-grid">
-      <div class="research-card">
+      <div class="research-card" data-reveal>
         <div class="icon-badge" style="background:var(--teal-deep);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.5L4.6 18a1.8 1.8 0 0 0 1.5 2.8h11.8a1.8 1.8 0 0 0 1.5-2.8L14 9.5V3"/><path d="M7.5 15h9"/></svg>
         </div>
         <h3 data-i18n="research.card1.title">Biological &amp; microalgae-based treatment</h3>
         <p data-i18n="research.card1.desc">Engineering microbial and microalgae-bacteria consortia that remove organic load and nutrients more reliably, using less energy than conventional activated sludge.</p>
       </div>
-      <div class="research-card">
+      <div class="research-card" data-reveal>
         <div class="icon-badge" style="background:var(--green-mid);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c0 8-6 14-14 14H4v-2C4 8 10 4 18 4h2Z"/><path d="M6 18c2-4 5-7 9-9"/></svg>
         </div>
         <h3 data-i18n="research.card2.title">Nutrient &amp; resource recovery</h3>
         <p data-i18n="research.card2.desc">Capturing nitrogen and phosphorus from wastewater and sewage sludge and converting them into usable fertilizer products instead of discharge byproducts.</p>
       </div>
-      <div class="research-card">
+      <div class="research-card" data-reveal>
         <div class="icon-badge" style="background:var(--orange);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
         </div>
         <h3 data-i18n="research.card3.title">Advanced oxidation &amp; disinfection</h3>
         <p data-i18n="research.card3.desc">Developing photocatalytic and advanced oxidation processes to disinfect water, remove emerging contaminants, and enable safe wastewater reuse.</p>
       </div>
-      <div class="research-card">
+      <div class="research-card" data-reveal>
         <div class="icon-badge" style="background:var(--green-lime);">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15v-4"/><path d="M12.5 15V8"/><path d="M17 15v-6"/></svg>
         </div>
@@ -678,23 +701,23 @@
 
 <section id="approach" class="band-teal">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="kicker" data-i18n="approach.kicker">Approach</span>
       <h2 data-i18n="approach.h2">From waste stream to value stream</h2>
       <p data-i18n="approach.p">Every project in the group follows the same underlying logic, applied to a different waste type or process.</p>
     </div>
     <div class="process">
-      <div class="process-step">
+      <div class="process-step" data-reveal>
         <span class="num">01</span>
         <h3 data-i18n="approach.step1.title">Characterize the waste</h3>
         <p data-i18n="approach.step1.desc">Understand the composition, variability, and hidden potential of a wastewater or byproduct stream.</p>
       </div>
-      <div class="process-step">
+      <div class="process-step" data-reveal>
         <span class="num">02</span>
         <h3 data-i18n="approach.step2.title">Engineer the process</h3>
         <p data-i18n="approach.step2.desc">Design biological or advanced oxidation systems that selectively remove, transform, or recover target compounds.</p>
       </div>
-      <div class="process-step">
+      <div class="process-step" data-reveal>
         <span class="num">03</span>
         <h3 data-i18n="approach.step3.title">Recover the value</h3>
         <p data-i18n="approach.step3.desc">Deliver a usable output — clean water, fertilizer, chemicals, or metals — at a scale that makes sense for real facilities.</p>
@@ -705,32 +728,32 @@
 
 <section id="people">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="kicker" data-i18n="people.kicker">People</span>
       <h2 data-i18n="people.h2">The group</h2>
       <p data-i18n="people.p">A mix of graduate researchers, undergraduates, and collaborators working across the group's project areas.</p>
     </div>
-    <div class="team-photo">
+    <div class="team-photo" data-reveal>
       <img src="wave-team-photo.jpg" alt="The WAVE research group">
     </div>
     <p class="team-photo-caption"><span data-i18n="people.caption">The WAVE group, DICA — Politecnico di Milano.</span></p>
     <div class="people-grid">
-      <div class="person">
+      <div class="person" data-reveal>
         <div class="avatar">EF</div>
         <h4>Elena Ficara</h4>
         <div class="role" data-i18n="people.role.pi1">Associate Professor · Principal Investigator</div>
       </div>
-      <div class="person">
+      <div class="person" data-reveal>
         <div class="avatar">AT</div>
         <h4>Andrea Turolla</h4>
         <div class="role" data-i18n="people.role.pi2">Associate Professor · Co-Principal Investigator</div>
       </div>
-      <div class="person">
+      <div class="person" data-reveal>
         <div class="avatar">AC</div>
         <h4>Arianna Catenacci</h4>
         <div class="role" data-i18n="people.role.phd">PhD Researcher</div>
       </div>
-      <div class="person">
+      <div class="person" data-reveal>
         <div class="avatar">AA</div>
         <h4>Ali Amini</h4>
         <div class="role" data-i18n="people.role.postdoc">Postdoctoral Research Fellow</div>
@@ -742,27 +765,27 @@
 
 <section id="publications" style="background:var(--bg-alt);">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="kicker" data-i18n="publications.kicker">Publications</span>
       <h2 data-i18n="publications.h2">Recent work</h2>
       <p data-i18n="publications.p">A running list of peer-reviewed papers and conference proceedings from the group.</p>
     </div>
     <div class="pub-list">
-      <div class="pub-item">
+      <div class="pub-item" data-reveal>
         <div class="year">2026</div>
         <div>
           <h4 data-i18n="pub1.title">[Placeholder] Paper title describing a WAVE research finding</h4>
           <div class="venue" data-i18n="pub1.venue">Journal Name, Vol. XX</div>
         </div>
       </div>
-      <div class="pub-item">
+      <div class="pub-item" data-reveal>
         <div class="year">2025</div>
         <div>
           <h4 data-i18n="pub2.title">[Placeholder] Second paper title goes here</h4>
           <div class="venue" data-i18n="pub2.venue">Conference Proceedings</div>
         </div>
       </div>
-      <div class="pub-item">
+      <div class="pub-item" data-reveal>
         <div class="year">2025</div>
         <div>
           <h4 data-i18n="pub3.title">[Placeholder] Third paper title goes here</h4>
@@ -775,20 +798,20 @@
 
 <section id="contact" class="band-teal">
   <div class="wrap contact-grid">
-    <div>
+    <div data-reveal>
       <span class="kicker" data-i18n="contact.kicker">Contact</span>
       <h2 style="color:#fff;" data-i18n="contact.h2">Interested in joining?</h2>
       <p style="color:rgba(255,255,255,0.82); margin-top:14px; max-width:44ch;" data-i18n="contact.p">We're always open to hearing from prospective students and collaborators working on water, waste, and resource recovery.</p>
     </div>
     <div class="contact-grid" style="gap:32px;">
-      <div class="contact-block">
+      <div class="contact-block" data-reveal>
         <h3 data-i18n="contact.email.label">Email</h3>
         <a href="mailto:Aryan.norouziderazkolaei@polimi.it">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           Aryan.norouziderazkolaei@polimi.it
         </a>
       </div>
-      <div class="contact-block">
+      <div class="contact-block" data-reveal style="transition-delay:.1s;">
         <h3 data-i18n="contact.location.label">Location</h3>
         <p style="align-items:flex-start;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:3px;"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
@@ -982,6 +1005,29 @@
   try { saved = localStorage.getItem(STORAGE_KEY); } catch(e){}
   var initial = saved || (navigator.language && navigator.language.toLowerCase().indexOf("it") === 0 ? "it" : "en");
   applyLanguage(initial);
+})();
+</script>
+
+<script>
+(function(){
+  var revealEls = document.querySelectorAll("[data-reveal]");
+  if (!revealEls.length) return;
+
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    revealEls.forEach(function(el){ el.classList.add("is-visible"); });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+
+  revealEls.forEach(function(el){ observer.observe(el); });
 })();
 </script>
 
