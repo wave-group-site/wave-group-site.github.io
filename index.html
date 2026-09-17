@@ -277,9 +277,9 @@
     .research-grid [data-reveal]:nth-child(4){transition-delay:.24s;}
     .process [data-reveal]:nth-child(2){transition-delay:.1s;}
     .process [data-reveal]:nth-child(3){transition-delay:.2s;}
-    .people-grid [data-reveal]:nth-child(2){transition-delay:.08s;}
-    .people-grid [data-reveal]:nth-child(3){transition-delay:.16s;}
-    .people-grid [data-reveal]:nth-child(4){transition-delay:.24s;}
+    .people-grid [data-reveal]:nth-child(4n+2){transition-delay:.08s;}
+    .people-grid [data-reveal]:nth-child(4n+3){transition-delay:.16s;}
+    .people-grid [data-reveal]:nth-child(4n+4){transition-delay:.24s;}
     .pub-list [data-reveal]:nth-child(2){transition-delay:.1s;}
     .pub-list [data-reveal]:nth-child(3){transition-delay:.2s;}
   }
@@ -761,15 +761,69 @@
       <div class="person" data-reveal>
         <div class="avatar">AC</div>
         <h4>Arianna Catenacci</h4>
-        <div class="role" data-i18n="people.role.phd">PhD Researcher</div>
+        <div class="role" data-i18n="people.role.tenureTrack">Tenure-Track Researcher</div>
       </div>
       <div class="person" data-reveal>
         <div class="avatar">AA</div>
         <h4>Ali Amini</h4>
         <div class="role" data-i18n="people.role.postdoc">Postdoctoral Research Fellow</div>
       </div>
+      <div class="person" data-reveal>
+        <div class="avatar">FD</div>
+        <h4>Francesca Di Benedetto</h4>
+        <div class="role" data-i18n="people.role.phdCandidate">PhD Candidate</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">MH</div>
+        <h4>María José Hernández</h4>
+        <div class="role" data-i18n="people.role.phdCandidate">PhD Candidate</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">GR</div>
+        <h4>Giaccomo Rizzardi</h4>
+        <div class="role" data-i18n="people.role.phdCandidate">PhD Candidate</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">MP</div>
+        <h4>Marco Pesenti</h4>
+        <div class="role" data-i18n="people.role.phdCandidate">PhD Candidate</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">SS</div>
+        <h4>Sophie Shrees</h4>
+        <div class="role" data-i18n="people.role.phdCandidate">PhD Candidate</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">NS</div>
+        <h4>Nimra Shahid</h4>
+        <div class="role" data-i18n="people.role.phdCandidate">PhD Candidate</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">EG</div>
+        <h4>Enrico Giuliani</h4>
+        <div class="role" data-i18n="people.role.phdCandidate">PhD Candidate</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">MM</div>
+        <h4>Matteo Magari</h4>
+        <div class="role" data-i18n="people.role.researchFellow">Research Fellow</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">AO</div>
+        <h4>Alice Ornaghi</h4>
+        <div class="role" data-i18n="people.role.labTech">Lab Technician</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">IB</div>
+        <h4>Irene Bonato</h4>
+        <div class="role" data-i18n="people.role.phdCandidate">PhD Candidate</div>
+      </div>
+      <div class="person" data-reveal>
+        <div class="avatar">AN</div>
+        <h4>Aryan Norouziderazkolaei</h4>
+        <div class="role" data-i18n="people.role.researchFellow">Research Fellow</div>
+      </div>
     </div>
-    <p class="people-note"><span data-i18n="people.note">Names and roles compiled from public research profiles — please confirm before publishing.</span><span class="placeholder-tag" data-i18n="ph.editMe">verify</span></p>
   </div>
 </section>
 
@@ -898,10 +952,11 @@
       "people.caption": "The WAVE group, DICA — Politecnico di Milano.",
       "people.role.pi1": "Associate Professor · Principal Investigator",
       "people.role.pi2": "Associate Professor · Co-Principal Investigator",
-      "people.role.phd": "PhD Researcher",
+      "people.role.tenureTrack": "Tenure-Track Researcher",
       "people.role.postdoc": "Postdoctoral Research Fellow",
-      "people.note": "Names and roles compiled from public research profiles — please confirm before publishing.",
-      "ph.editMe": "verify",
+      "people.role.phdCandidate": "PhD Candidate",
+      "people.role.researchFellow": "Research Fellow",
+      "people.role.labTech": "Lab Technician",
       "publications.kicker": "Publications",
       "publications.h2": "Recent work",
       "publications.p": "A running list of peer-reviewed papers and conference proceedings from the group.",
@@ -964,10 +1019,11 @@
       "people.caption": "Il gruppo WAVE, DICA — Politecnico di Milano.",
       "people.role.pi1": "Professore Associato · Responsabile Scientifico",
       "people.role.pi2": "Professore Associato · Co-Responsabile Scientifico",
-      "people.role.phd": "Dottorando/a di Ricerca",
+      "people.role.tenureTrack": "Ricercatore/a Tenure-Track",
       "people.role.postdoc": "Ricercatore Post-dottorato",
-      "people.note": "Nomi e ruoli raccolti da profili di ricerca pubblici — da confermare prima della pubblicazione.",
-      "ph.editMe": "da verificare",
+      "people.role.phdCandidate": "Dottorando/a di Ricerca",
+      "people.role.researchFellow": "Assegnista di Ricerca",
+      "people.role.labTech": "Tecnico/a di Laboratorio",
       "publications.kicker": "Pubblicazioni",
       "publications.h2": "Lavori recenti",
       "publications.p": "Un elenco aggiornato di articoli peer-reviewed e atti di convegno del gruppo.",
