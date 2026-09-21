@@ -498,6 +498,12 @@
     object-fit:cover;
     display:block;
   }
+  .person .avatar-link{
+    display:block;
+    width:52px;
+  }
+  .person .avatar-link .avatar{transition:opacity .15s ease;}
+  .person .avatar-link:hover .avatar{opacity:0.82;}
   .person h4{
     font-family:'Fraunces',serif;
     font-size:16.5px;
@@ -867,7 +873,9 @@
     <p class="team-photo-caption"><span data-i18n="people.caption">The WAVE group, DICA — Politecnico di Milano.</span></p>
     <div class="people-grid">
       <div class="person" data-reveal>
-        <div class="avatar"><img src="elena-ficara.jpg" alt="Elena Ficara"></div>
+        <a class="avatar-link" href="https://aunicalogin.polimi.it/aunicalogin/getservizio.xml?id_servizio=167&amp;evn_didattica=evento&amp;k_doc=66700" target="_blank" rel="noopener">
+          <div class="avatar"><img src="elena-ficara.jpg" alt="Elena Ficara"></div>
+        </a>
         <h4>Elena Ficara</h4>
         <div class="role" data-i18n="people.role.professor">Associate Professor</div>
       </div>
