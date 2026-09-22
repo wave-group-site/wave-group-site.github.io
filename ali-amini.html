@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="cookie-consent.css">
 <style>
   :root{
     --teal-deep:   #1F6E4A;
@@ -256,6 +257,8 @@
     .info-grid{grid-template-columns:1fr;}
     .pub-item{grid-template-columns:60px 1fr;}
   }
+  footer a.footer-link{color:rgba(255,255,255,0.7); text-decoration:underline; text-underline-offset:3px;}
+  footer a.footer-link:hover{color:var(--green-lime);}
 </style>
 </head>
 <body>
@@ -361,9 +364,11 @@
 <footer>
   <div class="wrap footer-inner">
     <span>WAVE — Waste to Value Engineering · Politecnico di Milano — DICA</span>
+    <a class="footer-link" href="cookie-policy.html" style="margin-left:20px;">Cookie Policy</a>
     <a class="back-link" href="index.html#people" style="margin-bottom:0;">← Back to the team</a>
   </div>
 </footer>
 
+<script src="cookie-consent.js" defer></script>
 </body>
 </html>
