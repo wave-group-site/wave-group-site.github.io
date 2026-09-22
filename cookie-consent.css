@@ -1,61 +1,195 @@
-.cookie-bar{
+.cookie-overlay{
   position:fixed;
-  left:20px;
-  right:20px;
-  bottom:20px;
-  z-index:400;
-  max-width:920px;
-  margin:0 auto;
-  background:var(--teal-ink, #123526);
-  color:rgba(255,255,255,0.92);
-  border-radius:12px;
-  box-shadow:0 20px 48px rgba(0,0,0,0.28);
-  padding:20px 24px;
+  inset:0;
+  z-index:500;
+  background:rgba(18,30,25,0.55);
   display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px 24px;
+  justify-content:center;
+  align-items:flex-start;
+  padding:64px 16px 16px;
+  overflow-y:auto;
   opacity:0;
-  transform:translateY(16px);
-  transition:opacity .35s ease, transform .35s ease;
-  font-family:'IBM Plex Sans', sans-serif;
+  transition:opacity .25s ease;
   pointer-events:none;
 }
-.cookie-bar.is-visible{opacity:1; transform:translateY(0); pointer-events:auto;}
-.cookie-bar-text{
-  font-size:14.5px;
-  line-height:1.55;
-  color:rgba(255,255,255,0.82);
-  flex:1;
-  min-width:240px;
+.cookie-overlay.is-visible{opacity:1; pointer-events:auto;}
+
+.cookie-topbar{
+  position:fixed;
+  top:0; left:0; right:0;
+  height:6px;
+  background:linear-gradient(90deg, var(--teal-deep,#1F6E4A), var(--green-mid,#4FA26B), var(--green-lime,#8DC63F));
+  z-index:501;
 }
-.cookie-bar-link{
-  color:#fff;
+
+.cookie-modal{
+  position:relative;
+  width:100%;
+  max-width:720px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 30px 70px rgba(9,25,18,0.35);
+  padding:32px 36px 28px;
+  font-family:'IBM Plex Sans', sans-serif;
+  color:var(--ink,#16211F);
+  transform:translateY(14px);
+  transition:transform .25s ease;
+}
+.cookie-overlay.is-visible .cookie-modal{transform:translateY(0);}
+
+.cookie-modal-close{
+  position:absolute;
+  top:18px; right:20px;
+  width:30px; height:30px;
+  border:none;
+  background:transparent;
+  color:var(--ink-soft,#4A5652);
+  font-size:22px;
+  line-height:1;
+  cursor:pointer;
+  border-radius:50%;
+  transition:background .15s ease, color .15s ease;
+}
+.cookie-modal-close:hover{background:var(--bg-alt,#EEF3EA); color:var(--ink,#16211F);}
+
+.cookie-modal h2{
+  font-family:'Fraunces', serif;
+  font-weight:600;
+  font-size:24px;
+  color:var(--teal-ink,#123526);
+  margin:0 0 14px;
+  padding-right:30px;
+}
+
+.cookie-modal-desc{
+  font-size:15px;
+  line-height:1.65;
+  color:var(--ink-soft,#4A5652);
+  margin:0 0 6px;
+}
+
+.cookie-modal-toggle-desc{
+  background:none;
+  border:none;
+  padding:0;
+  font-size:14px;
+  font-weight:500;
+  color:var(--teal-deep,#1F6E4A);
   text-decoration:underline;
   text-underline-offset:3px;
-  font-weight:500;
-  margin-left:6px;
-  white-space:nowrap;
+  cursor:pointer;
+  margin-bottom:20px;
+  display:inline-block;
 }
-.cookie-bar-link:hover{color:#8DC63F;}
-.cookie-bar-actions{display:flex; gap:10px; flex:none; align-items:center;}
-.cookie-bar-accept{
+
+.cookie-cat-list{display:flex; flex-direction:column; gap:10px; margin-bottom:24px;}
+
+.cookie-cat{
+  background:var(--bg-alt,#EEF3EA);
+  border:1px solid var(--line,rgba(31,110,74,0.16));
+  border-radius:7px;
+  overflow:hidden;
+}
+.cookie-cat-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 18px;
+  cursor:pointer;
+  user-select:none;
+}
+.cookie-cat-expand{
+  flex:none;
+  border:none;
+  background:none;
+  padding:0;
+  color:var(--ink-soft,#4A5652);
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:18px; height:18px;
+  transition:transform .2s ease;
+  cursor:pointer;
+}
+.cookie-cat.is-open .cookie-cat-expand{transform:rotate(90deg);}
+.cookie-cat-name{
+  flex:1;
+  font-weight:600;
+  font-size:15.5px;
+  color:var(--teal-ink,#123526);
+}
+.cookie-cat-state{
+  flex:none;
+  font-size:13.5px;
+  color:var(--ink-soft,#4A5652);
+  font-weight:500;
+}
+
+.cookie-switch{position:relative; display:inline-block; width:38px; height:21px; flex:none;}
+.cookie-switch input{position:absolute; opacity:0; width:100%; height:100%; margin:0; cursor:pointer;}
+.cookie-switch .track{
+  position:absolute; inset:0;
+  background:#d6dcd6;
+  border-radius:999px;
+  transition:background .2s ease;
+  pointer-events:none;
+}
+.cookie-switch .track::before{
+  content:"";
+  position:absolute;
+  left:2.5px; top:2.5px;
+  width:16px; height:16px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 1px 3px rgba(0,0,0,0.3);
+  transition:transform .2s ease;
+}
+.cookie-switch input:checked + .track{background:var(--green-mid,#4FA26B);}
+.cookie-switch input:checked + .track::before{transform:translateX(17px);}
+.cookie-switch input:focus-visible + .track{outline:2px solid var(--teal-deep,#1F6E4A); outline-offset:2px;}
+
+.cookie-cat-detail{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .25s ease, padding .25s ease;
+  padding:0 18px;
+}
+.cookie-cat.is-open .cookie-cat-detail{
+  max-height:220px;
+  padding:0 18px 16px;
+}
+.cookie-cat-detail p{
+  font-size:14px;
+  line-height:1.6;
+  color:var(--ink-soft,#4A5652);
+  margin:0;
+}
+
+.cookie-modal-actions{
+  display:flex;
+  justify-content:flex-end;
+}
+.cookie-modal-save{
   background:linear-gradient(135deg, var(--green-mid,#4FA26B), var(--teal-deep,#1F6E4A));
   color:#fff;
   border:none;
-  padding:10px 22px;
+  padding:13px 28px;
   border-radius:6px;
   font-weight:600;
-  font-size:14px;
+  font-size:14.5px;
+  letter-spacing:0.02em;
   font-family:inherit;
   cursor:pointer;
-  box-shadow:0 6px 16px rgba(31,110,74,0.32);
+  box-shadow:0 8px 20px rgba(31,110,74,0.3);
   transition:transform .15s ease, box-shadow .15s ease;
 }
-.cookie-bar-accept:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(31,110,74,0.4);}
+.cookie-modal-save:hover{transform:translateY(-1px); box-shadow:0 12px 26px rgba(31,110,74,0.4);}
 
 @media (max-width: 600px){
-  .cookie-bar{left:12px; right:12px; bottom:12px; padding:18px;}
-  .cookie-bar-actions{width:100%; justify-content:flex-end;}
+  .cookie-overlay{padding:52px 10px 10px; align-items:flex-start;}
+  .cookie-modal{padding:26px 20px 22px;}
+  .cookie-cat-head{padding:12px 14px;}
+  .cookie-modal-actions{justify-content:stretch;}
+  .cookie-modal-save{width:100%;}
 }
