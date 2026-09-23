@@ -272,24 +272,6 @@
   }
   .hero-carousel-dots button.is-active{background:#fff; transform:scale(1.15);}
 
-  .hero-stats-strip{padding:44px 0; position:relative; overflow:hidden; isolation:isolate;}
-  .hero-stats{
-    display:grid;
-    grid-template-columns:repeat(3,auto);
-    gap:48px;
-  }
-  .hero-stats .stat-num{
-    font-family:'Fraunces',serif;
-    font-size:30px;
-    font-weight:600;
-    color:var(--teal-ink);
-  }
-  .hero-stats .stat-label{
-    font-size:13px;
-    color:var(--ink-soft);
-    margin-top:2px;
-  }
-
   @media (prefers-reduced-motion: no-preference){
     .reveal{animation:reveal-up .7s cubic-bezier(.2,.7,.2,1) both;}
     .reveal-1{animation-delay:.02s;}
@@ -712,7 +694,6 @@
     .hero-carousel-arrow.prev{left:12px;}
     .hero-carousel-arrow.next{right:12px;}
     .hero-carousel-dots{right:16px; bottom:16px;}
-    .hero-stats{grid-template-columns:repeat(3,1fr); gap:20px;}
     .why-grid{grid-template-columns:1fr; gap:28px;}
     .research-grid{grid-template-columns:1fr;}
     .process{grid-template-columns:1fr;gap:32px;}
@@ -783,28 +764,6 @@
     <button type="button" data-slide="1" aria-label="Slide 2"></button>
     <button type="button" data-slide="2" aria-label="Slide 3"></button>
     <button type="button" data-slide="3" aria-label="Slide 4"></button>
-  </div>
-</section>
-
-<section class="hero-stats-strip decor-host">
-  <svg class="decor" style="width:340px;height:340px;bottom:-100px;right:-80px;" viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-    <path d="M20,220 Q100,170 180,220 T340,220"/>
-    <path d="M20,260 Q100,210 180,260 T340,260"/>
-    <path d="M20,300 Q100,250 180,300 T340,300"/>
-  </svg>
-  <div class="wrap hero-stats" data-reveal>
-    <div>
-      <div class="stat-num">4</div>
-      <div class="stat-label" data-i18n="hero.stat1">Research areas</div>
-    </div>
-    <div>
-      <div class="stat-num">[X]</div>
-      <div class="stat-label" data-i18n="hero.stat2">Active projects</div>
-    </div>
-    <div>
-      <div class="stat-num">[YYYY]</div>
-      <div class="stat-label" data-i18n="hero.stat3">Group established</div>
-    </div>
   </div>
 </section>
 
@@ -1180,9 +1139,6 @@
       "hero.lede": "We combine environmental biotechnology, resource recovery, waste valorization, and process modeling to recover nutrients, biopolymers, and energy from streams currently treated as waste.",
       "hero.cta.primary": "See our research",
       "hero.cta.ghost": "Join the group",
-      "hero.stat1": "Research areas",
-      "hero.stat2": "Active projects",
-      "hero.stat3": "Group established",
       "why1.title": "Hands-on lab work",
       "why1.desc": "Real reactors and analytical methods, not just simulations.",
       "why2.title": "Publication-track projects",
@@ -1267,9 +1223,6 @@
       "hero.lede": "Uniamo biotecnologie ambientali, recupero di risorse, valorizzazione dei rifiuti e modellazione di processo per recuperare nutrienti, biopolimeri ed energia da flussi oggi trattati come rifiuti.",
       "hero.cta.primary": "Scopri la nostra ricerca",
       "hero.cta.ghost": "Unisciti al gruppo",
-      "hero.stat1": "Aree di ricerca",
-      "hero.stat2": "Progetti attivi",
-      "hero.stat3": "Gruppo fondato nel",
       "why1.title": "Lavoro di laboratorio pratico",
       "why1.desc": "Reattori reali e metodi analitici, non solo simulazioni.",
       "why2.title": "Progetti orientati alla pubblicazione",
