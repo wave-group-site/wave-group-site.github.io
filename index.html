@@ -53,35 +53,48 @@
     padding:0 32px;
   }
 
+  /* ---------- identification bar ---------- */
+  .id-bar{background:#fff; border-bottom:1px solid var(--line);}
+  .id-bar-inner{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:20px;
+    padding:18px 32px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .id-bar-left{
+    grid-column:1;
+    justify-self:start;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .id-bar-left img{height:34px;width:34px;}
+  .id-bar-left span{font-size:12.5px; line-height:1.3; color:var(--ink-soft); font-weight:500;}
+  .id-bar-center{grid-column:2; justify-self:center;}
+  .id-bar-center img{height:38px; width:auto; display:block;}
+  .id-bar-right{grid-column:3; justify-self:end; text-align:right; font-size:13px; color:var(--ink-soft); font-weight:500;}
+
   /* ---------- nav ---------- */
   header{
     position:sticky;
     top:0;
     z-index:50;
-    background:rgba(251,250,246,0.92);
+    background:rgba(251,250,246,0.94);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
-    display:flex;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
     align-items:center;
-    justify-content:space-between;
-    padding:14px 32px;
+    padding:12px 32px;
     max-width:1120px;
     margin:0 auto;
-    gap:20px;
   }
-  .brand{display:flex;align-items:center;gap:12px;}
-  .brand img{height:32px;width:auto;}
-  .brand .polimi-logo{height:30px;}
-  .brand .affil{
-    font-size:12.5px;
-    color:var(--ink-soft);
-    border-left:1px solid var(--line);
-    padding-left:12px;
-    line-height:1.3;
-  }
-  nav{flex:1;display:flex;justify-content:center;}
+  nav{grid-column:2;}
   nav ul{
     display:flex;
     gap:30px;
@@ -97,6 +110,7 @@
   }
   nav a:hover{border-color:var(--orange);}
   .nav-toggle{display:none;}
+  .nav-inner .lang-switch{grid-column:3; justify-self:end;}
 
   /* ---------- language switch ---------- */
   .lang-switch{
@@ -128,37 +142,7 @@
   }
   .lang-switch button:hover:not(.active){color:var(--teal-ink);}
 
-  /* ---------- hero ---------- */
-  .hero{
-    position:relative;
-    padding:88px 0 76px;
-    overflow:hidden;
-    isolation:isolate;
-  }
-  .hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image:radial-gradient(rgba(31,110,74,0.10) 1.4px, transparent 1.4px);
-    background-size:22px 22px;
-    -webkit-mask-image:radial-gradient(ellipse 65% 60% at 78% 30%, #000 0%, transparent 72%);
-    mask-image:radial-gradient(ellipse 65% 60% at 78% 30%, #000 0%, transparent 72%);
-    pointer-events:none;
-  }
-  .affil-chip{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:var(--bg-alt);
-    border:1px solid var(--line);
-    color:var(--teal-ink);
-    font-size:13px;
-    font-weight:500;
-    padding:6px 14px;
-    border-radius:100px;
-    margin-bottom:20px;
-  }
-  .affil-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--orange);}
+  /* ---------- hero carousel ---------- */
   .eyebrow-line{
     display:flex;
     align-items:center;
@@ -169,17 +153,6 @@
   }
   .eyebrow-line .dash{
     width:26px;height:2px;background:var(--orange);
-  }
-  .hero h1{
-    font-size:clamp(2.5rem, 4.6vw, 3.6rem);
-    line-height:1.08;
-    max-width:14ch;
-  }
-  .hero p.lede{
-    margin-top:22px;
-    font-size:19px;
-    color:var(--ink-soft);
-    max-width:46ch;
   }
   .hero-cta{
     margin-top:34px;
@@ -210,20 +183,17 @@
     transition:background .15s ease, transform .2s ease;
   }
   .btn-ghost:hover{background:rgba(31,110,74,0.06); transform:translateY(-1px);}
-  .hero-text{max-width:760px;}
-  .hero-cover{
+
+  .hero-carousel{
     position:relative;
-    height:100vh;
-    min-height:520px;
-    max-height:880px;
+    padding:0;
+    height:min(72vh, 600px);
+    min-height:420px;
     overflow:hidden;
     isolation:isolate;
-    display:flex;
-    align-items:center;
-    justify-content:center;
   }
-  .hero-cover-slides{position:absolute; inset:0; z-index:0;}
-  .hero-cover-slide{
+  .hero-carousel-track{position:absolute; inset:0; z-index:0;}
+  .hero-carousel-slide{
     position:absolute;
     inset:0;
     background-size:cover;
@@ -231,60 +201,79 @@
     opacity:0;
     transition:opacity 1.8s ease;
   }
-  .hero-cover-slide.is-active{opacity:1;}
-  .hero-cover-overlay{
+  .hero-carousel-slide.is-active{opacity:1;}
+  .hero-carousel-overlay{
     position:absolute;
     inset:0;
     z-index:1;
-    background:linear-gradient(180deg, rgba(18,53,38,0.6), rgba(18,53,38,0.32) 45%, rgba(18,53,38,0.62));
+    background:linear-gradient(0deg, rgba(18,53,38,0.85) 0%, rgba(18,53,38,0.4) 45%, rgba(18,53,38,0.12) 78%);
   }
-  .hero-cover-badge{
+  .hero-carousel-content{
     position:absolute;
-    top:24px;
-    left:24px;
+    left:0;
+    right:0;
+    bottom:0;
     z-index:3;
+    padding:0 32px 60px;
+  }
+  .hero-carousel-content .eyebrow-line{color:rgba(255,255,255,0.85);}
+  .hero-carousel-content .eyebrow-line .dash{background:var(--green-lime);}
+  .hero-carousel-content h1{
+    color:#fff;
+    font-size:clamp(2.2rem, 4.2vw, 3.2rem);
+    line-height:1.1;
+    max-width:15ch;
+  }
+  .hero-carousel-content p.lede{
+    margin-top:20px;
+    font-size:18px;
+    color:rgba(255,255,255,0.88);
+    max-width:44ch;
+  }
+  .hero-carousel-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:3;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.5);
+    background:rgba(18,53,38,0.35);
+    color:#fff;
+    font-size:20px;
+    line-height:1;
+    cursor:pointer;
     display:flex;
     align-items:center;
-    gap:10px;
-    background:rgba(251,250,246,0.94);
-    backdrop-filter:blur(6px);
-    padding:8px 16px 8px 8px;
-    border-radius:100px;
-    box-shadow:0 10px 24px rgba(0,0,0,0.2);
+    justify-content:center;
+    transition:background .15s ease, border-color .15s ease;
   }
-  .hero-cover-badge img{height:30px;width:30px;display:block;}
-  .hero-cover-badge span{font-size:11.5px;line-height:1.25;color:var(--teal-ink);font-weight:600;}
-  .hero-cover-logo{
-    position:relative;
-    z-index:3;
-    background:rgba(251,250,246,0.95);
-    backdrop-filter:blur(6px);
-    border-radius:16px;
-    padding:34px 48px;
-    box-shadow:0 30px 64px rgba(0,0,0,0.28);
-  }
-  .hero-cover-logo img{width:260px;max-width:56vw;height:auto;display:block;}
-  .hero-cover-scroll{
+  .hero-carousel-arrow:hover{background:rgba(18,53,38,0.6); border-color:#fff;}
+  .hero-carousel-arrow.prev{left:20px;}
+  .hero-carousel-arrow.next{right:20px;}
+  .hero-carousel-dots{
     position:absolute;
     bottom:24px;
-    left:50%;
-    transform:translateX(-50%);
+    right:32px;
     z-index:3;
     display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:6px;
-    color:#fff;
-    opacity:0.85;
-    font-size:11.5px;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
+    gap:8px;
   }
+  .hero-carousel-dots button{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.7);
+    background:transparent;
+    padding:0;
+    cursor:pointer;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .hero-carousel-dots button.is-active{background:#fff; transform:scale(1.15);}
+
+  .hero-stats-strip{padding:44px 0; position:relative; overflow:hidden; isolation:isolate;}
   .hero-stats{
-    position:relative;
-    margin-top:56px;
-    padding-top:32px;
-    border-top:1px solid var(--line);
     display:grid;
     grid-template-columns:repeat(3,auto);
     gap:48px;
@@ -312,20 +301,12 @@
       to{opacity:1; transform:translateY(0);}
     }
 
-    .hero-cover-logo{
-      animation:logo-materialize 1.4s cubic-bezier(.16,1,.3,1) both;
-      animation-delay:.4s;
-    }
-    .hero-cover-badge{
-      animation:reveal-up .8s cubic-bezier(.2,.7,.2,1) both;
-      animation-delay:.15s;
-    }
-    .hero-cover-scroll{
-      animation:reveal-up .8s cubic-bezier(.2,.7,.2,1) both;
-      animation-delay:1s;
+    .id-bar-center img{
+      animation:logo-materialize 1.3s cubic-bezier(.16,1,.3,1) both;
+      animation-delay:.2s;
     }
     @keyframes logo-materialize{
-      0%{opacity:0; transform:scale(.88) translateY(10px); filter:blur(14px);}
+      0%{opacity:0; transform:scale(.88) translateY(6px); filter:blur(10px);}
       55%{opacity:1;}
       100%{opacity:1; transform:scale(1) translateY(0); filter:blur(0);}
     }
@@ -722,10 +703,15 @@
 
   @media (max-width: 860px){
     nav ul{display:none;}
-    .brand .affil{display:none;}
-    .hero-cover-logo{padding:24px 30px;}
-    .hero-cover-logo img{width:200px;}
-    .hero-cover-badge span{display:none;}
+    .id-bar-left span, .id-bar-right{display:none;}
+    .id-bar-center img{height:30px;}
+    .hero-carousel{height:auto; min-height:460px;}
+    .hero-carousel-content{position:relative; left:auto; right:auto; bottom:auto; padding:150px 20px 28px;}
+    .hero-carousel-content p.lede{font-size:16px;}
+    .hero-carousel-arrow{width:34px; height:34px; font-size:17px;}
+    .hero-carousel-arrow.prev{left:12px;}
+    .hero-carousel-arrow.next{right:12px;}
+    .hero-carousel-dots{right:16px; bottom:16px;}
     .hero-stats{grid-template-columns:repeat(3,1fr); gap:20px;}
     .why-grid{grid-template-columns:1fr; gap:28px;}
     .research-grid{grid-template-columns:1fr;}
@@ -739,13 +725,23 @@
 </head>
 <body>
 
+<div class="id-bar">
+  <div class="id-bar-inner">
+    <div class="id-bar-left">
+      <img src="polimi-logo.png" alt="Politecnico di Milano logo">
+      <span>Politecnico di Milano<br>DICA</span>
+    </div>
+    <div class="id-bar-center">
+      <img src="wave-logo.png" alt="WAVE — Waste to Value Engineering logo">
+    </div>
+    <div class="id-bar-right">
+      <span data-i18n="hero.eyebrow">Wastewater &amp; Resource Recovery Research</span>
+    </div>
+  </div>
+</div>
+
 <header>
   <div class="nav-inner">
-    <div class="brand">
-      <img src="wave-logo.png" alt="WAVE logo">
-      <img src="polimi-logo.png" alt="Politecnico di Milano logo" class="polimi-logo">
-      <span class="affil">Politecnico di Milano<br>DICA</span>
-    </div>
     <nav>
       <ul>
         <li><a href="#research" data-i18n="nav.research">Research</a></li>
@@ -763,36 +759,15 @@
   </div>
 </header>
 
-<section class="hero-cover">
-  <div class="hero-cover-slides" aria-hidden="true">
-    <div class="hero-cover-slide is-active" style="background-image:url('hero-cover-1.jpg')"></div>
-    <div class="hero-cover-slide" style="background-image:url('hero-cover-2.jpg')"></div>
-    <div class="hero-cover-slide" style="background-image:url('hero-cover-3.jpg')"></div>
-    <div class="hero-cover-slide" style="background-image:url('hero-cover-4.jpg')"></div>
+<section class="hero-carousel">
+  <div class="hero-carousel-track" aria-hidden="true">
+    <div class="hero-carousel-slide is-active" style="background-image:url('hero-cover-1.jpg')"></div>
+    <div class="hero-carousel-slide" style="background-image:url('hero-cover-2.jpg')"></div>
+    <div class="hero-carousel-slide" style="background-image:url('hero-cover-3.jpg')"></div>
+    <div class="hero-carousel-slide" style="background-image:url('hero-cover-4.jpg')"></div>
   </div>
-  <div class="hero-cover-overlay"></div>
-  <div class="hero-cover-badge">
-    <img src="polimi-logo.png" alt="Politecnico di Milano logo">
-    <span>Politecnico di Milano<br>DICA</span>
-  </div>
-  <div class="hero-cover-logo">
-    <img src="wave-logo.png" alt="WAVE — Waste to Value Engineering logo">
-  </div>
-  <div class="hero-cover-scroll">
-    <span data-i18n="hero.scroll">Scroll</span>
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg>
-  </div>
-</section>
-
-<section class="hero">
-  <svg class="decor" style="width:460px;height:460px;bottom:-120px;right:-80px;" viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-    <path d="M20,220 Q100,170 180,220 T340,220"/>
-    <path d="M20,260 Q100,210 180,260 T340,260"/>
-    <path d="M20,300 Q100,250 180,300 T340,300"/>
-    <path d="M20,340 Q100,290 180,340 T340,340"/>
-  </svg>
-  <div class="wrap hero-text">
-    <div class="affil-chip reveal reveal-1"><span class="dot"></span> Politecnico di Milano · DICA</div>
+  <div class="hero-carousel-overlay"></div>
+  <div class="wrap hero-carousel-content">
     <div class="eyebrow-line reveal reveal-1"><span class="dash"></span> <span data-i18n="hero.eyebrow">Wastewater &amp; Resource Recovery Research</span></div>
     <h1 class="reveal reveal-2" data-i18n="hero.h1">Turning wastewater into a resource, not a liability.</h1>
     <p class="lede reveal reveal-3" data-i18n="hero.lede">We combine environmental biotechnology, resource recovery, waste valorization, and process modeling to recover nutrients, biopolymers, and energy from streams currently treated as waste.</p>
@@ -800,19 +775,35 @@
       <a href="#research" class="btn btn-primary" data-i18n="hero.cta.primary">See our research</a>
       <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta.ghost">Join the group</a>
     </div>
-    <div class="hero-stats reveal reveal-4">
-      <div>
-        <div class="stat-num">4</div>
-        <div class="stat-label" data-i18n="hero.stat1">Research areas</div>
-      </div>
-      <div>
-        <div class="stat-num">[X]</div>
-        <div class="stat-label" data-i18n="hero.stat2">Active projects</div>
-      </div>
-      <div>
-        <div class="stat-num">[YYYY]</div>
-        <div class="stat-label" data-i18n="hero.stat3">Group established</div>
-      </div>
+  </div>
+  <button type="button" class="hero-carousel-arrow prev" aria-label="Previous photo">&#8249;</button>
+  <button type="button" class="hero-carousel-arrow next" aria-label="Next photo">&#8250;</button>
+  <div class="hero-carousel-dots">
+    <button type="button" class="is-active" data-slide="0" aria-label="Slide 1"></button>
+    <button type="button" data-slide="1" aria-label="Slide 2"></button>
+    <button type="button" data-slide="2" aria-label="Slide 3"></button>
+    <button type="button" data-slide="3" aria-label="Slide 4"></button>
+  </div>
+</section>
+
+<section class="hero-stats-strip decor-host">
+  <svg class="decor" style="width:340px;height:340px;bottom:-100px;right:-80px;" viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <path d="M20,220 Q100,170 180,220 T340,220"/>
+    <path d="M20,260 Q100,210 180,260 T340,260"/>
+    <path d="M20,300 Q100,250 180,300 T340,300"/>
+  </svg>
+  <div class="wrap hero-stats" data-reveal>
+    <div>
+      <div class="stat-num">4</div>
+      <div class="stat-label" data-i18n="hero.stat1">Research areas</div>
+    </div>
+    <div>
+      <div class="stat-num">[X]</div>
+      <div class="stat-label" data-i18n="hero.stat2">Active projects</div>
+    </div>
+    <div>
+      <div class="stat-num">[YYYY]</div>
+      <div class="stat-label" data-i18n="hero.stat3">Group established</div>
     </div>
   </div>
 </section>
@@ -1192,7 +1183,6 @@
       "hero.stat1": "Research areas",
       "hero.stat2": "Active projects",
       "hero.stat3": "Group established",
-      "hero.scroll": "Scroll",
       "why1.title": "Hands-on lab work",
       "why1.desc": "Real reactors and analytical methods, not just simulations.",
       "why2.title": "Publication-track projects",
@@ -1280,7 +1270,6 @@
       "hero.stat1": "Aree di ricerca",
       "hero.stat2": "Progetti attivi",
       "hero.stat3": "Gruppo fondato nel",
-      "hero.scroll": "Scorri",
       "why1.title": "Lavoro di laboratorio pratico",
       "why1.desc": "Reattori reali e metodi analitici, non solo simulazioni.",
       "why2.title": "Progetti orientati alla pubblicazione",
@@ -1414,15 +1403,37 @@
 
 <script>
 (function(){
-  var slides = document.querySelectorAll(".hero-cover-slide");
+  var slides = document.querySelectorAll(".hero-carousel-slide");
+  var dots = document.querySelectorAll(".hero-carousel-dots button");
+  var prevBtn = document.querySelector(".hero-carousel-arrow.prev");
+  var nextBtn = document.querySelector(".hero-carousel-arrow.next");
   if (slides.length < 2) return;
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
   var idx = 0;
-  setInterval(function(){
+  var timer = null;
+  var autoplay = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function goTo(newIdx){
     slides[idx].classList.remove("is-active");
-    idx = (idx + 1) % slides.length;
+    if (dots[idx]) dots[idx].classList.remove("is-active");
+    idx = (newIdx + slides.length) % slides.length;
     slides[idx].classList.add("is-active");
-  }, 12000);
+    if (dots[idx]) dots[idx].classList.add("is-active");
+  }
+
+  function startTimer(){
+    if (!autoplay) return;
+    clearInterval(timer);
+    timer = setInterval(function(){ goTo(idx + 1); }, 12000);
+  }
+
+  if (prevBtn) prevBtn.addEventListener("click", function(){ goTo(idx - 1); startTimer(); });
+  if (nextBtn) nextBtn.addEventListener("click", function(){ goTo(idx + 1); startTimer(); });
+  dots.forEach(function(dot, i){
+    dot.addEventListener("click", function(){ goTo(i); startTimer(); });
+  });
+
+  startTimer();
 })();
 </script>
 
